@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <title>Somewhere — Open Invitation</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --background: #f5f5f5;
+        --surface: #ffffff;
+        --text: #111111;
+        --muted: #6e6e6e;
+        --outline: #e2e2e2;
+        --primary: #0072f3;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #1a1a1a;
+          --surface: #272727;
+          --text: #ffffff;
+          --muted: #b2b2b2;
+          --outline: #3d3d3d;
+        }
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--background);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(calc(100vw - 48px), 480px);
+        padding: 36px 28px;
+        border: 1px solid var(--outline);
+        border-radius: 28px;
+        background: var(--surface);
+        text-align: center;
+        box-shadow: 0 14px 40px rgb(0 0 0 / 10%);
+      }
+
+      h1 { margin: 0; font-size: 30px; }
+      p { margin: 14px 0 0; color: var(--muted); line-height: 1.6; }
+
+      .actions { display: grid; gap: 12px; margin-top: 28px; }
+      .action {
+        display: block;
+        padding: 14px 18px;
+        border-radius: 16px;
+        background: var(--primary);
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .action--secondary {
+        border: 1px solid var(--outline);
+        background: transparent;
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Somewhere</h1>
+      <p>If the app did not open, install Somewhere and return to the invitation.</p>
+      <div class="actions">
+        <a class="action" href="https://npsomewhere.com/download.html">Download App</a>
+        <a class="action action--secondary" id="invitation" href="https://npsomewhere.com/">
+          Return to Invitation
+        </a>
+      </div>
+    </main>
+    <script>
+      (function () {
+        const token = new URLSearchParams(window.location.search).get("token");
+        if (/^[A-Za-z0-9_-]{43}$/.test(token || "")) {
+          document.getElementById("invitation").href =
+            "https://npsomewhere.com/join/?token=" + encodeURIComponent(token);
+        }
+      })();
+    </script>
+  </body>
+</html>
