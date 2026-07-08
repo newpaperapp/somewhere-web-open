@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.newpaper.somewhere",
+      "sha256_cert_fingerprints": [
+        "14:76:78:3A:9B:35:01:6C:EC:3D:E3:B6:80:5C:D9:67:74:F1:BA:7D:3A:0B:A1:9F:20:4D:36:2A:32:38:31:DB"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.newpaper.somewhere.debug",
+      "sha256_cert_fingerprints": [
+        "BB:4C:3C:F2:41:36:70:A0:24:A3:35:E4:11:AD:CE:EB:DE:75:1C:B8:74:E3:80:F5:D4:2E:D6:C3:93:0B:45:5E"
+      ]
+    }
+  }
+]
